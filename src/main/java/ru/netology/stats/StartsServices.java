@@ -19,20 +19,32 @@ public class StartsServices {
         return (long) averageSum;
     }
 
-    public long numberSalesUnder(long[] sales) {
+    public long numberSalesUnder(long[] sales) { //количество месяцев в которых продажи ниже среднего
         long number = 0;
+        long sum = 0;
+        long averageSum = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] < 15) {
+            sum = sum + sales[i];
+            averageSum = sum / 12;
+        }
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] < averageSum) {
                 number = number + 1;
             }
         }
         return number;
     }
 
-    public long numberSalesHigher(long[] sales) {
+    public long numberSalesHigher(long[] sales) { ////количество месяцев в которых продажи выше среднего
         long number = 0;
+        long sum = 0;
+        long averageSum = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] > 15) {
+            sum = sum + sales[i];
+            averageSum = sum / 12;
+        }
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > averageSum) {
                 number = number + 1;
             }
         }
