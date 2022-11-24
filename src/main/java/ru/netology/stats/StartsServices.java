@@ -10,10 +10,11 @@ public class StartsServices {
     }
 
     public float averageSumMonth(long[] month) {
-        long sum = 0;
+       // long sum = 0;
+        long sum = sumMonth(month);
         long averageSum = 0;
         for (int i = 0; i < month.length; i++) {
-            sum = sum + month[i];
+           // sum = sum + month[i];
             averageSum = sum / 12;
         }
         return (long) averageSum;
@@ -21,12 +22,13 @@ public class StartsServices {
 
     public long numberSalesUnder(long[] sales) { //количество месяцев в которых продажи ниже среднего
         long number = 0;
-        long sum = 0;
-        long averageSum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-            averageSum = sum / 12;
-        }
+       // long sum = 0;
+       // long averageSum = 0;
+        float averageSum = averageSumMonth(sales);
+       // for (int i = 0; i < sales.length; i++) {
+           // sum = sum + sales[i];
+           // averageSum = sum / 12;
+       // }
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < averageSum) {
                 number = number + 1;
@@ -37,12 +39,13 @@ public class StartsServices {
 
     public long numberSalesHigher(long[] sales) { ////количество месяцев в которых продажи выше среднего
         long number = 0;
-        long sum = 0;
-        long averageSum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-            averageSum = sum / 12;
-        }
+        float averageSum = averageSumMonth(sales);
+       // long sum = 0;
+      //  long averageSum = 0;
+       // for (int i = 0; i < sales.length; i++) {
+       //     sum = sum + sales[i];
+       //     averageSum = sum / 12;
+       // }
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > averageSum) {
                 number = number + 1;
